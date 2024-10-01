@@ -34,13 +34,13 @@ module.exports = {
 			listAdmin: "👑 | Danh sách admin:\n%1"
 		},
 		en: {
-			added: "✅ | Added admin role for %1 users:\n%2",
+			added: "✅ | 𝐿𝑒 𝑛𝑜𝑢𝑣𝑒𝑙 𝑎𝑑𝑚𝑖𝑛 𝑑𝑢 𝐻𝑒𝑑𝑔𝑒ℎ𝑜𝑔𝑏𝑜𝑡 𝑒𝑠𝑡 %1:\n%2",
 			alreadyAdmin: "\n⚠️ | %1 users already have admin role:\n%2",
 			missingIdAdd: "⚠️ | Please enter ID or tag user to add admin role",
-			removed: "✅ | Removed admin role of %1 users:\n%2",
+			removed: "✅ | 𝐿'𝑎𝑑𝑚𝑖𝑛 𝑎𝑦𝑎𝑛𝑡 𝑒𝑡𝑒 𝑟𝑒𝑡𝑖𝑟𝑒 𝑒𝑠𝑡 %1:\n%2",
 			notAdmin: "⚠️ | %1 users don't have admin role:\n%2",
 			missingIdRemove: "⚠️ | Please enter ID or tag user to remove admin role",
-			listAdmin: "👑 | List of admins:\n%1"
+			listAdmin: "🎯| 𝐀𝐃𝐌𝐈𝐍'𝐒 𝐁𝐎𝐓:\n━━━━━━━━━━━━━━━\n%1"
 		}
 	},
 
@@ -107,7 +107,7 @@ module.exports = {
 			case "list":
 			case "-l": {
 				const getNames = await Promise.all(config.adminBot.map(uid => usersData.getName(uid).then(name => ({ uid, name }))));
-				return message.reply(getLang("listAdmin", getNames.map(({ uid, name }) => `• ${name} (${uid})`).join("\n")));
+				return message.reply(getLang("listAdmin", getNames.map(({ uid, name }) => `웃 ${name} 『${uid}』`).join("\n")));
 			}
 			default:
 				return message.SyntaxError();
