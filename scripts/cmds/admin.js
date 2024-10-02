@@ -34,10 +34,10 @@ module.exports = {
 			listAdmin: "👑 | Danh sách admin:\n%1"
 		},
 		en: {
-			added: "✅ | 𝐿𝑒 𝑛𝑜𝑢𝑣𝑒𝑙 𝑎𝑑𝑚𝑖𝑛 𝑑𝑢 𝐻𝑒𝑑𝑔𝑒ℎ𝑜𝑔𝑏𝑜𝑡 𝑒𝑠𝑡 %1:\n%2",
+			added: "✅ | 𝐿𝑒 𝑛𝑜𝑢𝑣𝑒𝑙 𝑎𝑑𝑚𝑖𝑛 𝑑𝑢 𝐻𝑒𝑑𝑔𝑒ℎ𝑜𝑔𝑏𝑜𝑡\n%2",
 			alreadyAdmin: "\n⚠️ | %1 users already have admin role:\n%2",
 			missingIdAdd: "⚠️ | Please enter ID or tag user to add admin role",
-			removed: "✅ | 𝐿'𝑎𝑑𝑚𝑖𝑛 𝑎𝑦𝑎𝑛𝑡 𝑒𝑡𝑒 𝑟𝑒𝑡𝑖𝑟𝑒 𝑒𝑠𝑡 %1:\n%2",
+			removed: "✅ | 𝐿'𝑎𝑑𝑚𝑖𝑛 𝑎𝑦𝑎𝑛𝑡 𝑒𝑡𝑒 𝑟𝑒𝑡𝑖𝑟𝑒 𝑒𝑠𝑡\n%2",
 			notAdmin: "⚠️ | %1 users don't have admin role:\n%2",
 			missingIdRemove: "⚠️ | Please enter ID or tag user to remove admin role",
 			listAdmin: "🎯| 𝐀𝐃𝐌𝐈𝐍'𝐒 𝐁𝐎𝐓:\n━━━━━━━━━━━━━━━\n%1"
