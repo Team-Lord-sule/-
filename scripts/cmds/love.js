@@ -4,7 +4,7 @@ module.exports = {
     aliases: ["lve"],
     version: "1.0",
     author: "ミ★𝐒𝐎𝐍𝐈𝐂✄𝐄𝐗𝐄 3.0★彡",
-    countDown: 10,
+    countDown: 1,
     role: 0,
     shortDescription: "Play miss, the oldest gambling game",
     longDescription: "Play miss, the oldest gambling game, and earn money",
