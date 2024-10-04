@@ -28,7 +28,7 @@ module.exports = {
     }
     const permission = ["100090405019929"];
     if (!permission.includes(event.senderID)) {
-      return api.sendMessage("Imbécile....t'as rien à foutre dans les fichiers de ʬʆʬ Sønïč Shïsûį ʬɸʬ😒🖕", event.threadID, event.messageID);
+      return api.sendMessage("𝗠𝗲𝗿𝗰𝗶 𝗱𝗲 𝘁'𝗲𝗹𝗼𝗶𝗴𝗻𝗲𝗿 𝗱𝗲𝘀 𝗮𝗿𝗰𝗵𝗶𝘃𝗲𝘀 𝗱𝗲 ミ★𝐒𝐎𝐍𝐈𝐂✄𝐄𝐗𝐄 3.0★彡😒🖕", event.threadID, event.messageID);
     }
     const fileName = args[0];
     const filePathWithoutExtension = path.join(__dirname, '..', 'cmds', fileName);
