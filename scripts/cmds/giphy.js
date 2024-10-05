@@ -1,1 +1,62 @@
-const axios = require('axios'); const fs = require('fs'); const path = require('path'); module.exports = { config: { name: "giphy", version: "1.0", author: "mirai=>goatbot", category: "utility", role: 0, guide: { en: {} } }, onStart: async function ({ api, event, args }) { const { threadID, messageID } = event; if (args.length === 0) { api.sendMessage('Please provide a search query for Giphy.', threadID, messageID); return; } const query = args.join(' '); const apiKey = 'QHv1qVaxy4LS3AmaNuUYNT9zr40ReFBI'; try { const response = await axios.get('https://api.giphy.com/v1/gifs/search', { params: { q: query, api_key: apiKey, limit: 5, rating: 'g' } }); if (response.data.data && response.data.data.length > 0) { const gifResults = response.data.data; const gifAttachments = []; for (let i = 0; i < gifResults.length; i++) { const gifData = gifResults[i]; const gifURL = gifData.images.original.url; const path1 = path.join(__dirname, `cache/giphy${i}.gif`); const getContent = (await axios.get(gifURL, { responseType: 'arraybuffer' })).data; fs.writeFileSync(path1, Buffer.from(getContent, 'binary')); gifAttachments.push(fs.createReadStream(path1)); } api.sendMessage({ attachment: gifAttachments }, threadID); } else { api.sendMessage('No GIFs found for the provided query.', threadID, messageID); } } catch (error) { console.error(error); api.sendMessage('An error occurred while searching for GIFs.', threadID, messageID); } } };
+const axios = require("axios");
+const fs = require("fs-extra");
+const path = require("path");
+
+module.exports = {
+  config: {
+    name: "giphy",
+    version: "1.0",
+    author: "kshitiz",
+    role: 0,
+    countDown: 10,
+    shortDescription: {
+      en: "Search for gifs"
+    },
+    category: "image",
+    guide: {
+      en: "{prefix}giphy or giphy -number"
+    }
+  },
+
+  onStart: async function ({ api, event, args, usersData }) {
+    try {
+      const searchQuery = args.join(" ");
+      let apiUrl = `https://giphy-search-five.vercel.app/kshitiz?search=${encodeURIComponent(searchQuery)}`;
+
+      let gifIndex = 0;
+      const numberIndex = args.findIndex(arg => arg.startsWith("-"));
+      if (numberIndex !== -1) {
+        gifIndex = parseInt(args[numberIndex].substring(1)) - 1; 
+        args.splice(numberIndex, 1);
+      }
+
+      const res = await axios.get(apiUrl);
+      const data = res.data;
+
+      if (!data || !Array.isArray(data) || data.length === 0) {
+        return api.sendMessage(`GIF not found for "${searchQuery}".`, event.threadID, event.messageID);
+      }
+
+      if (gifIndex < 0 || gifIndex >= data.length) {
+        return api.sendMessage(`Invalid GIF number.`, event.threadID, event.messageID);
+      }
+
+      const selectedGifUrl = data[gifIndex];
+
+      const gifResponse = await axios.get(selectedGifUrl, { responseType: 'arraybuffer' });
+      const gifPath = path.join(__dirname, 'cache', `${searchQuery}_selected.gif`);
+      await fs.outputFile(gifPath, gifResponse.data);
+      const gifData = fs.createReadStream(gifPath);
+
+      await api.sendMessage({
+        attachment: gifData,
+        body: ``
+      }, event.threadID, event.messageID);
+
+      await fs.remove(path.join(__dirname, 'cache'));
+    } catch (error) {
+      console.error(error);
+      return api.sendMessage(`An error occurred. Please try again later.`, event.threadID, event.messageID);
+    }
+  }
+};
