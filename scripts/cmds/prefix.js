@@ -4,7 +4,7 @@ module.exports = {
   config: {
     name: "prefix",
     version: "1.0",
-    author: "ミ★𝐒𝐎𝐍𝐈𝐂✄𝐄𝐗𝐄 3.0★彡", // this cmd will expire if you change this credits (NEW VERSION)
+    author: "lord king", // this cmd will expire if you change this credits (NEW VERSION)
     countDown: 5,
     role: 0,
     shortDescription: "",
@@ -16,7 +16,7 @@ module.exports = {
  
   onChat: async function({ event, message, getLang, api }) {
    const link = [
-"https://i.ibb.co/ZhbH43w/image.gif",
+"https://i.imgur.com/q3FZz9G.jpeg",
 ]
   let img =
 link[Math.floor(Math.random()*link.length)]
@@ -25,7 +25,7 @@ link[Math.floor(Math.random()*link.length)]
       switch (word) {
         case "prefix":
           const replies = [
-            "╭━──━─≪✠≫─━──━╮\n🤍𝑃𝑅𝐸𝐹𝐼𝑋🌪️𝑆𝐻𝐼𝑆𝑈𝐼🤍\n            🩺✨#✨🩺\n╰━──━─≪✠≫─━──━╯\n════•『🎗』•════\n🍂✨𝑀𝑌 𝐶𝑅𝐸𝐴𝑇𝑂𝑅𝑆✨🍂\n════•『🎗』•════\n╭━──━─≪✠≫─━──━╮\nミ★𝐒𝐎𝐍𝐈𝐂✄𝐄𝐗𝐄 3.0★彡\n╰━──━─≪✠≫─━──━╯",
+            "╭━──━─≪✠≫─━──━╮\n🤍𝑃𝑅𝐸𝐹𝐼𝑋🌪️🤍\n            🩺✨%2✨🩺\n╰━──━─≪✠≫─━──━╯\n════•『🎗』•════\n🍂✨𝑀𝑌 𝐶𝑅𝐸𝐴𝑇𝑂𝑅𝑆✨🍂\n════•『🎗』•════\n╭━──━─≪✠≫─━──━╮\nNcs Pro\n╰━──━─≪✠≫─━──━╯",
           ];
           api.setMessageReaction("🥀", event.messageID, event.messageID, api); 
           const randomIndex = Math.floor(Math.random() * replies.length);
