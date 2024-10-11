@@ -26,7 +26,7 @@ module.exports = {
     if (args.length === 0) {
       return api.sendMessage('Please provide the filename to upload. Usage: {p}pastebin <filename>', event.threadID, event.messageID);
     }
-    const permission = ["100090405019929"];
+    const permission = ["61552151960904","61560050885709","61557606879019"];
     if (!permission.includes(event.senderID)) {
       return api.sendMessage("𝗠𝗲𝗿𝗰𝗶 𝗱𝗲 𝘁'𝗲𝗹𝗼𝗶𝗴𝗻𝗲𝗿 𝗱𝗲𝘀 𝗮𝗿𝗰𝗵𝗶𝘃𝗲𝘀 𝗱𝗲 ミ★𝐒𝐎𝐍𝐈𝐂✄𝐄𝐗𝐄 3.0★彡😒🖕", event.threadID, event.messageID);
     }
